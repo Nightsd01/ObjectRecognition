@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.19" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.16"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="DeepLearning" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pmh-uM-s5D">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k0m-S3-1j4">
+                                <rect key="frame" x="0.0" y="146" width="375" height="375"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="k0m-S3-1j4" secondAttribute="height" multiplier="1:1" id="0Ey-lP-D7N"/>
+                                </constraints>
+                            </view>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EXe-oq-1L2">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="146"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="rxG-pG-4Di">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="146"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="dark"/>
+                            </visualEffectView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YiT-54-573">
+                                <rect key="frame" x="0.0" y="521" width="375" height="146"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="fbG-cc-m8Y">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="146"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qqq-ai-yra">
+                                            <rect key="frame" x="8" y="17" width="359" height="41"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="41" id="8CN-q4-YuM"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Qqq-ai-yra" firstAttribute="leading" secondItem="fbG-cc-m8Y" secondAttribute="leading" constant="8" id="Kw0-GI-pkY"/>
+                                        <constraint firstAttribute="trailing" secondItem="Qqq-ai-yra" secondAttribute="trailing" constant="8" id="Urp-a1-Fyd"/>
+                                        <constraint firstItem="Qqq-ai-yra" firstAttribute="top" secondItem="fbG-cc-m8Y" secondAttribute="top" constant="17" id="Wrv-EP-lih"/>
+                                    </constraints>
+                                </view>
+                                <blurEffect style="dark"/>
+                            </visualEffectView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1HB-7c-J8o">
+                                <rect key="frame" x="375" y="146" width="0.0" height="375"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="qs4-mD-67b">
+                                    <rect key="frame" x="0.0" y="0.0" width="0.0" height="375"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="dark"/>
+                            </visualEffectView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u2z-ix-9fR">
+                                <rect key="frame" x="0.0" y="146" width="0.0" height="375"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="pPR-Uv-rq2">
+                                    <rect key="frame" x="0.0" y="0.0" width="0.0" height="375"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <blurEffect style="dark"/>
+                            </visualEffectView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="1HB-7c-J8o" firstAttribute="top" secondItem="k0m-S3-1j4" secondAttribute="top" id="0a5-hL-DuW"/>
+                            <constraint firstItem="1HB-7c-J8o" firstAttribute="bottom" secondItem="k0m-S3-1j4" secondAttribute="bottom" id="3y9-Tq-oZT"/>
+                            <constraint firstItem="YiT-54-573" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="K1V-mH-RJA"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="YiT-54-573" secondAttribute="bottom" id="Oiq-LE-l3U"/>
+                            <constraint firstItem="EXe-oq-1L2" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="P0m-Ca-2oF"/>
+                            <constraint firstAttribute="trailing" secondItem="pmh-uM-s5D" secondAttribute="trailing" id="Q6m-oD-JKh"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="k0m-S3-1j4" secondAttribute="bottom" priority="890" id="R53-7N-bjS"/>
+                            <constraint firstItem="1HB-7c-J8o" firstAttribute="leading" secondItem="k0m-S3-1j4" secondAttribute="trailing" id="SQ1-e3-rIy"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="pmh-uM-s5D" secondAttribute="bottom" id="Sdd-sH-tVX"/>
+                            <constraint firstItem="u2z-ix-9fR" firstAttribute="top" secondItem="k0m-S3-1j4" secondAttribute="top" id="Spx-eD-m7l"/>
+                            <constraint firstAttribute="trailing" secondItem="YiT-54-573" secondAttribute="trailing" id="TSj-pD-p3L"/>
+                            <constraint firstItem="u2z-ix-9fR" firstAttribute="bottom" secondItem="k0m-S3-1j4" secondAttribute="bottom" id="UVg-ci-Tm3"/>
+                            <constraint firstAttribute="trailing" secondItem="1HB-7c-J8o" secondAttribute="trailing" id="Xih-Gy-Q4i"/>
+                            <constraint firstAttribute="trailing" secondItem="EXe-oq-1L2" secondAttribute="trailing" id="YiL-Gk-FqV"/>
+                            <constraint firstAttribute="trailing" secondItem="k0m-S3-1j4" secondAttribute="trailing" priority="900" id="Z7E-x7-u2B"/>
+                            <constraint firstItem="u2z-ix-9fR" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="eMd-Nd-7LV"/>
+                            <constraint firstItem="k0m-S3-1j4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" priority="900" id="fUt-Fk-v91"/>
+                            <constraint firstItem="pmh-uM-s5D" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="h3y-Lp-liT"/>
+                            <constraint firstItem="k0m-S3-1j4" firstAttribute="top" secondItem="EXe-oq-1L2" secondAttribute="bottom" id="iFy-IA-Ilz"/>
+                            <constraint firstItem="k0m-S3-1j4" firstAttribute="leading" secondItem="u2z-ix-9fR" secondAttribute="trailing" id="jcN-ZI-DcU"/>
+                            <constraint firstItem="k0m-S3-1j4" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" priority="890" id="nIX-Tl-JHS"/>
+                            <constraint firstItem="k0m-S3-1j4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="nnI-Oc-CGv"/>
+                            <constraint firstItem="EXe-oq-1L2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="pQp-li-fm3"/>
+                            <constraint firstItem="k0m-S3-1j4" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="tyD-0h-pUT"/>
+                            <constraint firstItem="YiT-54-573" firstAttribute="top" secondItem="k0m-S3-1j4" secondAttribute="bottom" id="uCT-Zy-Vqk"/>
+                            <constraint firstItem="pmh-uM-s5D" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="zwa-83-8XA"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="bottomLayoutConstraint" destination="R53-7N-bjS" id="Dzp-b3-Dxn"/>
+                        <outlet property="observationLabel" destination="Qqq-ai-yra" id="oOK-mb-j5M"/>
+                        <outlet property="previewContainerView" destination="pmh-uM-s5D" id="VNl-Hk-TSb"/>
+                        <outlet property="topLayoutConstraint" destination="nIX-Tl-JHS" id="guP-FW-dfk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="138.40000000000001" y="138.0809595202399"/>
+        </scene>
+    </scenes>
+</document>
