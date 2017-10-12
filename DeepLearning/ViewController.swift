@@ -19,7 +19,7 @@ class ViewController: UIViewController
     @IBOutlet weak var bottomLayoutConstraint: NSLayoutConstraint!
     @IBOutlet weak var observationLabel: UILabel!
     
-    //Camera Capture requiered properties
+    //Camera Capture required properties
     var videoDataOutput: AVCaptureVideoDataOutput!
     var videoDataOutputQueue: DispatchQueue!
     var previewLayer:AVCaptureVideoPreviewLayer!
@@ -27,7 +27,7 @@ class ViewController: UIViewController
     let session = AVCaptureSession()
     var deviceInut : AVCaptureDeviceInput!;
     
-    //CoreML properties
+    //CoreML properties.
     var visionRequests = [VNRequest]();
     let labels = ["apple", "aquarium_fish", "baby", "bear", "beaver", "bed", "bee", "beetle", "bicycle", "bottle", "bowl", "boy", "bridge", "bus", "butterfly", "camel", "can", "castle", "caterpillar", "cattle", "chair", "chimpanzee", "clock", "cloud", "cockroach", "couch", "crab", "crocodile", "cup", "dinosaur", "dolphin", "elephant", "flatfish", "forest", "fox", "girl", "hamster", "house", "kangaroo", "keyboard", "lamp", "lawn_mower", "leopard", "lion", "lizard", "lobster", "man", "maple_tree", "motorcycle", "mountain", "mouse", "mushroom", "oak_tree", "orange", "orchid", "otter", "palm_tree", "pear", "pickup_truck", "pine_tree", "plain", "plate", "poppy", "porcupine", "possum", "rabbit", "raccoon", "ray", "road", "rocket", "rose", "sea", "seal", "shark", "shrew", "skunk", "skyscraper", "snail", "snake", "spider", "squirrel", "streetcar", "sunflower", "sweet_pepper", "table", "tank", "telephone", "television", "tiger", "tractor", "train", "trout", "tulip", "turtle", "wardrobe", "whale", "willow_tree", "wolf", "woman", "worm"];
     
@@ -40,21 +40,18 @@ class ViewController: UIViewController
         
         self.beginSession();
         
-        
-        
         NotificationCenter.default.addObserver(self, selector: #selector(self.didAutoRotate), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil);
         
         guard let visionModel = try? VNCoreMLModel(for: tensormodel().model) else { fatalError("could not instantiate tensormodel") };
         
         let classificationRequest = VNCoreMLRequest(model: visionModel) { (request, error) in
+            //create the classification request, handle the response.
             if let error = error {
                 print("ENCOUNTERED ERROR: \(error)");
                 return;
             }
             
             guard let observations = request.results as? [VNCoreMLFeatureValueObservation] else {
-                print("NO RESULTS, \(request.results?.count ?? -1)");
-                
                 if let res = request.results {
                     for obj in res {
                         print(obj);
@@ -64,13 +61,14 @@ class ViewController: UIViewController
             }
             
             if observations.first?.featureValue.type == .multiArray {
+                //look for the output with the highest value.
+                //this index will correspond with a label in our self.labels array
+                
                 guard let res = observations.first?.featureValue.multiArrayValue else {
-                    print("NO RES");
                     return;
                 }
                 
                 guard (res.count == 100) else {
-                    print("RES COUNT INSUFFICIENT: \(res.count)");
                     return;
                 }
                 
@@ -80,12 +78,9 @@ class ViewController: UIViewController
                     let val = res[i];
                     
                     if (val.doubleValue > res[highestIndex].doubleValue) {
-                        print("I = \(val.doubleValue) HIGHER THAN I = \(res[highestIndex].doubleValue)");
                         highestIndex = i;
                     }
                 }
-                
-                print("CLASSIFIED: \(self.labels[highestIndex]), CONFIDENCE = \(res[highestIndex].doubleValue)");
                 
                 DispatchQueue.main.async {
                     if (res[highestIndex].doubleValue > 0.50) {
@@ -95,18 +90,16 @@ class ViewController: UIViewController
                     }
                 };
             }
-            
-            
-            
         };
         
-        classificationRequest.imageCropAndScaleOption = VNImageCropAndScaleOptionCenterCrop;
+        classificationRequest.imageCropAndScaleOption = .centerCrop;
         
         self.visionRequests = [classificationRequest];
     }
     
     @objc func didAutoRotate()
     {
+        //when the device rotates, this function sets the 'blur' bars to be either on top and bottom (portrait) or side to size (landscape) so that the image the user sees is always a square image.
         if (UIDevice.current.orientation == .landscapeLeft || UIDevice.current.orientation == .landscapeRight) {
             self.topLayoutConstraint.priority = UILayoutPriority(rawValue: 910);
             self.bottomLayoutConstraint.priority = UILayoutPriority(rawValue: 910);
@@ -133,6 +126,7 @@ class ViewController: UIViewController
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator)
     {
+        //handles rotations and adjusts size of the previewLayer accordingly
         coordinator.animate(alongsideTransition: { (context) in
             self.previewLayer.frame = self.view.bounds;
         }, completion: nil);
@@ -140,6 +134,8 @@ class ViewController: UIViewController
     
     func beginSession()
     {
+        //begins the AVCaptureSession session
+        
         self.deviceInut = try! AVCaptureDeviceInput(device: self.captureDevice);
         
         guard (self.session.canAddInput(self.deviceInut)) else { return };
@@ -173,6 +169,7 @@ extension ViewController:  AVCaptureVideoDataOutputSampleBufferDelegate
 {
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection)
     {
+        //this delegate function captures camera output, converts it to a pixel buffer, and feeds it into the image request handler, and performs inference on that input
         guard let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else {
             return;
         }
@@ -183,7 +180,7 @@ extension ViewController:  AVCaptureVideoDataOutputSampleBufferDelegate
             requestOptions = [.cameraIntrinsics : cameraIntrinsicData];
         }
         
-        let imageRequestHandler = VNImageRequestHandler(cvPixelBuffer: pixelBuffer, orientation: Int32(UIDevice.current.orientation.rawValue), options: requestOptions)
+        let imageRequestHandler = VNImageRequestHandler(cvPixelBuffer: pixelBuffer, orientation: CGImagePropertyOrientation(rawValue: UInt32(Int32(UIDevice.current.orientation.rawValue)))!, options: requestOptions)
         
         do {
             try imageRequestHandler.perform(self.visionRequests);

@@ -12,7 +12,7 @@
 		CA1ADD2E1F5F4C790080803C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA1ADD2C1F5F4C790080803C /* Main.storyboard */; };
 		CA1ADD301F5F4C790080803C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA1ADD2F1F5F4C790080803C /* Assets.xcassets */; };
 		CA1ADD331F5F4C790080803C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA1ADD311F5F4C790080803C /* LaunchScreen.storyboard */; };
-		CAE1101D1F699DEF00285424 /* tensormodel.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = CAE1101C1F699DEF00285424 /* tensormodel.mlmodel */; };
+		CABB4AC61F901157001BDCBD /* tensormodel.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = CABB4AC51F901127001BDCBD /* tensormodel.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,7 +23,7 @@
 		CA1ADD2F1F5F4C790080803C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CA1ADD321F5F4C790080803C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CA1ADD341F5F4C790080803C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CAE1101C1F699DEF00285424 /* tensormodel.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = tensormodel.mlmodel; path = ../../keras/tensormodel.mlmodel; sourceTree = "<group>"; };
+		CABB4AC51F901127001BDCBD /* tensormodel.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = tensormodel.mlmodel; path = TrainModel/tensormodel.mlmodel; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,7 +62,7 @@
 				CA1ADD2F1F5F4C790080803C /* Assets.xcassets */,
 				CA1ADD311F5F4C790080803C /* LaunchScreen.storyboard */,
 				CA1ADD341F5F4C790080803C /* Info.plist */,
-				CAE1101C1F699DEF00285424 /* tensormodel.mlmodel */,
+				CABB4AC51F901127001BDCBD /* tensormodel.mlmodel */,
 			);
 			path = DeepLearning;
 			sourceTree = "<group>";
@@ -140,7 +140,7 @@
 			files = (
 				CA1ADD2B1F5F4C790080803C /* ViewController.swift in Sources */,
 				CA1ADD291F5F4C790080803C /* AppDelegate.swift in Sources */,
-				CAE1101D1F699DEF00285424 /* tensormodel.mlmodel in Sources */,
+				CABB4AC61F901157001BDCBD /* tensormodel.mlmodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
