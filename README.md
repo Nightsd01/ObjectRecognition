@@ -19,5 +19,7 @@ The model takes a bit over an hour on my machine with a GTX Titan X (Pascal). Yo
 
 Eventually I will run a hyperparameter search to find the most optimal hyperparameters. The current architecture/hyperparams were simply found with rough trial-and-error. 
 
+The algorithm currently uses a Softmax activation function on the output layer. This means that we are essentially forcing the classifier to classify whatever it sees. Currently, if no single output exceeds 0.5, the iOS application will show 'none'. If you would like the neural network to better handle situations where it isn't being shown anything it was trained on, you can switch the output layer to use the sigmoid activation function instead.
+
 
 ![alt text](https://i.imgur.com/26U7QnW.jpg)
