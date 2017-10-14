@@ -6,7 +6,7 @@ I designed & trained a convolutional neural network on the CIFAR-100 database of
 The neural network is run uses iOS' new CoreML to efficiently run in real time.
 
 ## Testing the Model
-To test the iOS application, I would recommend using Google Images, trying categories like 'sunflower', 'rose', 'wolf', 'clouds', and so on.
+To test the iOS application, I would recommend using Google Images, trying categories like 'sunflower', 'rose', 'wolf', 'clouds', and so on. Since the algorithm currently doesn't apply bounding box detection, you need to ensure that the subject is mostly centered inside of the image square. For example, the algorith, currently wouldn't be able to detect a 'flower' in an image if that flower is a relatively tiny part of the image. In the future, I will be adding bounding box detection & cropping.
 
 ## Training the Model
 I have included the tensormodel.mlmodel file in the DeepLearning directory. This is a fully trained model. However, if you would like to train this model on your own computer, you can find the files in the TrainModel directory.
