@@ -5,6 +5,9 @@ I designed & trained a convolutional neural network on the CIFAR-100 database of
 
 The neural network is run uses iOS' new CoreML to efficiently run in real time.
 
+## Testing the Model
+To test the iOS application, I would recommend using Google Images, trying categories like 'sunflower', 'rose', 'wolf', 'clouds', and so on.
+
 ## Training the Model
 I have included the tensormodel.mlmodel file in the DeepLearning directory. This is a fully trained model. However, if you would like to train this model on your own computer, you can find the files in the TrainModel directory.
 
