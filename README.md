@@ -1,5 +1,5 @@
 # ObjectRecognition
-Uses the iOS device camera and a custom deep learning algorithm to perform real time object recognition.
+Uses the iOS device camera and a custom deep learning algorithm to perform real time object recognition. This neural network achieves 68.8% accuracy. In 2015, the [best](http://rodrigob.github.io/are_we_there_yet/build/classification_datasets_results.html#43494641522d313030) algorithms hit 76%, so this is quite good for a simple convolutional neural network. 
 
 I designed & trained a convolutional neural network on the CIFAR-100 database of object images for 100 different classes of objects (such as trains, aircraft, different types of flowers).
 
@@ -18,7 +18,7 @@ I have included the tensormodel.mlmodel file in the DeepLearning directory. This
 
 The model requires some training data and will download it automatically for you if it is not present on your machine. This is not the standard CIFAR-100 format, I have converted it to .npy files so that there is no further normalization/transformations needed on the dataset.
 
-The model takes a bit over an hour on my machine with a GTX Titan X (Pascal). Your mileage may vary. The model, with current hyperparameters, will achieve roughly 70% accuracy on the test set. There are certainly better neural network architectures that can be used (ie. residual neural networks), and this is a simple convolutional neural network.
+The model takes a bit over an hour on my machine with a GTX Titan X (Pascal). Your mileage may vary. The model, with current hyperparameters, will achieve 68.8% accuracy on the test set. There are certainly better neural network architectures that can be used (ie. residual neural networks), and this is a simple convolutional neural network.
 
 Eventually I will run a hyperparameter search to find the most optimal hyperparameters. The current architecture/hyperparams were simply found with rough trial-and-error. 
 
